@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.4...3.18)
 project(cmake_example)
 
+include_directories("${CMAKE_SOURCE_DIR}")
+
 add_subdirectory(pybind11)
 pybind11_add_module(cmake_example src/main.cpp)
 

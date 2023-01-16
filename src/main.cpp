@@ -1,4 +1,5 @@
 #include <pybind11/pybind11.h>
+#include "src/param.h"
 #include <iostream>
 
 #define STRINGIFY(x) #x
@@ -8,9 +9,16 @@ int add(int i, int j) {
     return i + j;
 }
 
+int psi_sender(int x, int y) {
+    int res = 0;
+    res = 2*x + y;
+    return res;
+}
+
 int psi(int x, int y) {
     std::cout << "psi api." << std::endl;
-    return 0;
+    auto res = psi_sender(x, y);
+    return res;
 }
 
 namespace py = pybind11;
