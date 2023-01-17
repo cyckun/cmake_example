@@ -2,6 +2,7 @@
 #include "PSI/include/utils.h"
 #include "PSI/include/PsiSender.h"
 #include "PSI/include/PsiReceiver.h"
+#include "run.h"
 
 #include <cryptoTools/Network/IOService.h>
 #include <cryptoTools/Network/Endpoint.h>
@@ -10,6 +11,7 @@
 #include <cryptoTools/Common/Log.h>
 
 #include <vector>
+#include <iostream>
 
 using namespace std;
 using namespace PSI;
@@ -70,8 +72,9 @@ void runReceiver() {
 }
 
 
-int runmock() {
-	return 0;
+int runmock(int x) {
+	// std::cout << "this PSI_test lib." << std::endl;
+	return 2*x;
 }
 
 // int main(int argc, char** argv) {

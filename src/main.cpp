@@ -1,5 +1,5 @@
 #include <pybind11/pybind11.h>
-#include "PSI/include/psitest.h"
+#include "PSI_test/run.h"
 #include <iostream>
 
 #define STRINGIFY(x) #x
@@ -16,7 +16,7 @@ int psi_sender(int x, int y) {
 }
 
 int psi(int x, int y) {
-    std::cout << "psi api." << std::endl;
+    // std::cout << "psi api." << std::endl;
     auto res = psi_sender(x, y);
     return res;
 }
@@ -46,6 +46,12 @@ PYBIND11_MODULE(cmake_example, m) {
 
     m.def("psi", &psi, R"pbdoc(
         Add two numbers
+
+        Some other explanation about the add function.
+    )pbdoc");
+
+    m.def("runmock", &runmock, R"pbdoc(
+        PSI run mock
 
         Some other explanation about the add function.
     )pbdoc");

@@ -70,8 +70,6 @@ file(GLOB_RECURSE SRCS ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
  
 
 add_library(PSI STATIC ${SRCS})
-set_target_properties(PSI PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_include_directories(PSI PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include  ${libOTe_Dirs}/cryptoTools ${libOTe_Dirs} ${libOTe_Dirs}/libOTe ${Miracl_Dirs} ${Boost_INCLUDE_DIR})
-
 target_link_libraries(PSI ${libOTe_LIB} ${cryptoTools_LIB} ${MIRACL_LIB} ${NTL_LIB} ${Boost_LIBRARIES})
 

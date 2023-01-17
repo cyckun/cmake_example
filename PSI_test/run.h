@@ -1,3 +1,3 @@
 #pragma once
 
-int runmock();
+int runmock(int x);

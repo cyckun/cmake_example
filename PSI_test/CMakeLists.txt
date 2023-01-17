@@ -6,7 +6,7 @@
 
 file(GLOB_RECURSE SRCS_TEST ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
-add_library(PSI_test ${SRCS_TEST})
+add_library(PSI_test STATIC ${SRCS_TEST})
 
 #############################################
 #            Link our libraries             #

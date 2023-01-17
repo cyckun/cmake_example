@@ -15,7 +15,7 @@ include_directories("${CMAKE_SOURCE_DIR}")
 #            Flag and #defines              #
 #############################################
 add_definitions(-DSOLUTION_DIR=\"${CMAKE_SOURCE_DIR}\")
-set(CMAKE_C_FLAGS "-ffunction-sections  -Wno-strict-aliasing  -maes -msse2 -msse4.1 -mpclmul -Wno-sign-compare -Wfatal-errors -pthread")
+set(CMAKE_C_FLAGS "-ffunction-sections  -Wno-strict-aliasing -fPIC -maes -msse2 -msse4.1 -mpclmul -Wno-sign-compare -Wfatal-errors -pthread")
 set(CMAKE_CXX_FLAGS  "${CMAKE_C_FLAGS}  -std=c++14")
 
 # Set a default build type for single-configuration
@@ -70,7 +70,7 @@ set(BOOST_ROOT "${libOTe_Dirs}/cryptoTools/thirdparty/linux/boost/")
 # #############################################
 
 
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+# set(CMAKE_POSITION_INDEPENDENT_CODE ON)
  
 add_subdirectory(pybind11)
 
