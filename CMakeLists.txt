@@ -15,7 +15,7 @@ include_directories("${CMAKE_SOURCE_DIR}")
 #            Flag and #defines              #
 #############################################
 add_definitions(-DSOLUTION_DIR=\"${CMAKE_SOURCE_DIR}\")
-set(CMAKE_C_FLAGS "-ffunction-sections -Wall -Wno-strict-aliasing  -maes -msse2 -msse4.1 -mpclmul -Wno-sign-compare -Wfatal-errors -pthread")
+set(CMAKE_C_FLAGS "-ffunction-sections  -Wno-strict-aliasing  -maes -msse2 -msse4.1 -mpclmul -Wno-sign-compare -Wfatal-errors -pthread")
 set(CMAKE_CXX_FLAGS  "${CMAKE_C_FLAGS}  -std=c++14")
 
 # Set a default build type for single-configuration
@@ -68,14 +68,21 @@ set(BOOST_ROOT "${libOTe_Dirs}/cryptoTools/thirdparty/linux/boost/")
 # #############################################
 # #               Build PSI                   #
 # #############################################
-add_subdirectory(PSI)
 
+
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ 
 add_subdirectory(pybind11)
 
-pybind11_add_module(cmake_example src/main.cpp)
-# target_include_directories(cmake_example PUBLIC PSI)
+add_subdirectory(PSI)
+add_subdirectory(PSI_test)
 
-message("compile end.\n\n\n--------")
+pybind11_add_module(cmake_example src/main.cpp)
+
+target_link_libraries(cmake_example PUBLIC PSI_test)
+target_include_directories(cmake_example PUBLIC PSI_test)
+
+
 # EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
 # define (VERSION_INFO) here.
 target_compile_definitions(cmake_example

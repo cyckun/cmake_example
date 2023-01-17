@@ -1,4 +1,5 @@
 #include <pybind11/pybind11.h>
+#include "PSI/include/psitest.h"
 #include <iostream>
 
 #define STRINGIFY(x) #x
