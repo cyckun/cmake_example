@@ -1,5 +1,4 @@
 #include <pybind11/pybind11.h>
-#include "src/param.h"
 #include <iostream>
 
 #define STRINGIFY(x) #x
@@ -22,6 +21,7 @@ int psi(int x, int y) {
 }
 
 namespace py = pybind11;
+
 
 PYBIND11_MODULE(cmake_example, m) {
     m.doc() = R"pbdoc(

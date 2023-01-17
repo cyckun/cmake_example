@@ -4,12 +4,12 @@ project(cmake_example)
 
 include_directories("${CMAKE_SOURCE_DIR}")
 
-set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
-set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/lib)
-set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/lib)
+# set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
+# set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/lib)
+# set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/lib)
 
-message("test path -------------")
-message( ${CMAKE_HOME_DIRECTORY})
+# message("test path -------------")
+# message( ${CMAKE_HOME_DIRECTORY})
 
 #############################################
 #            Flag and #defines              #
@@ -44,7 +44,7 @@ endif()
 SET(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -ggdb -rdynamic")
 SET(CMAKE_CXX_FLAGS_DEBUG  "-O0 -g3 -ggdb -rdynamic")
-
+# 
 #############################################
 #       Library/includes locations          #
 #############################################
@@ -56,7 +56,6 @@ set(libOTe_Dirs "${CMAKE_SOURCE_DIR}/psi_libote/")
 include_directories("${libOTe_Dirs}/") 
 include_directories("${libOTe_Dirs}/libOTe") 
 include_directories("${libOTe_Dirs}/cryptoTools")
-include_directories("${CMAKE_SOURCE_DIR}/PSI")
 
 # default location for miracl
 set(Miracl_Dirs "${libOTe_Dirs}/cryptoTools/thirdparty/linux/miracl/")
@@ -71,8 +70,6 @@ set(BOOST_ROOT "${libOTe_Dirs}/cryptoTools/thirdparty/linux/boost/")
 # #############################################
 add_subdirectory(PSI)
 
-
-# add_subdirectory(src)
 add_subdirectory(pybind11)
 
 pybind11_add_module(cmake_example src/main.cpp)
