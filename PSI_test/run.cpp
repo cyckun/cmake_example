@@ -77,65 +77,55 @@ int runmock(int x) {
 	return 2*x;
 }
 
-// int main(int argc, char** argv) {
-	
-// 	oc::CLP cmd;
-// 	cmd.parse(argc, argv);
-	
-// 	cmd.setDefault("ss", 20);
-// 	senderSize = 1 << cmd.get<u64>("ss");
-	
-// 	cmd.setDefault("rs", 20);
-// 	receiverSize = 1 << cmd.get<u64>("rs");
-	
-// 	cmd.setDefault("w", 632);
-// 	width = cmd.get<u64>("w");
-	
-// 	cmd.setDefault("h", 20);
-// 	logHeight = cmd.get<u64>("h");
-// 	height = 1 << cmd.get<u64>("h");
-	
-// 	cmd.setDefault("hash", 10);
-// 	hashLengthInBytes = cmd.get<u64>("hash");
-	
-// 	cmd.setDefault("ip", "localhost");
-// 	ip = cmd.get<string>("ip");
-	
-// 	bucket1 = bucket2 = 1 << 8;
-	
-// 	bool noneSet = !cmd.isSet("r");
-// 	if (noneSet) {
-// 		std::cout
-// 		<< "=================================\n"
-// 		<< "||  Private Set Intersection   ||\n"
-// 		<< "=================================\n"
-// 		<< "\n"
-// 		<< "This program reports the performance of the private set intersection protocol.\n"
-// 		<< "\n"
-// 		<< "Experimenet flag:\n"
-// 		<< " -r 0    to run a sender.\n"
-// 		<< " -r 1    to run a receiver.\n"
-// 		<< "\n"
-// 		<< "Parameters:\n"
-// 		<< " -ss     log(#elements) on sender side.\n"
-// 		<< " -rs     log(#elements) on receiver side.\n"
-// 		<< " -w      width of the matrix.\n"
-// 		<< " -h      log(height) of the matrix.\n"
-// 		<< " -hash   hash output length in bytes.\n"
-// 		<< " -ip     ip address (and port).\n"
-// 		;
-// 	} else {
-// 		if (cmd.get<u64>("r") == 0) {
-// 			runSender();
-// 		} else if (cmd.get<u64>("r") == 1) {
-// 			runReceiver();
-// 		}
-// 	}
+
+int run(u64 senderSize,
+	u64 receiverSize,
+	u64 logHeight,
+	u64 hashLengthInBytes,
+	u64 bucket,
+	string ip,
+	int role) {
 	
 	
+	senderSize = senderSize;
 	
-// 	return 0;
-// }
+	receiverSize = receiverSize;
+	width = 600;
+	logHeight = logHeight;
+	height = 1 << logHeight;
+
+	hashLengthInBytes = 10;
+	ip = ip;
+	
+
+	std::cout
+		<< "=================================\n"
+		<< "||  Private Set Intersection   ||\n"
+		<< "=================================\n"
+		<< "\n"
+		<< "This program reports the performance of the private set intersection protocol.\n"
+		<< "\n"
+		<< "Experimenet flag:\n"
+		<< " -r 0    to run a sender.\n"
+		<< " -r 1    to run a receiver.\n"
+		<< "\n"
+		<< "Parameters:\n"
+		<< " -ss     log(#elements) on sender side.\n"
+		<< " -rs     log(#elements) on receiver side.\n"
+		<< " -w      width of the matrix.\n"
+		<< " -h      log(height) of the matrix.\n"
+		<< " -hash   hash output length in bytes.\n"
+		<< " -ip     ip address (and port).\n"
+		;
+
+	if (role == 0) {
+		runSender();
+	} else if (role == 1) {
+		runReceiver();
+	}
+
+	return 0;
+}
 
 
 

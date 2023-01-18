@@ -55,6 +55,13 @@ PYBIND11_MODULE(cmake_example, m) {
 
         Some other explanation about the add function.
     )pbdoc");
+    
+    m.def("run", &run, R"pbdoc(
+        PSI run
+
+        Some other explanation about the add function.
+    )pbdoc");
+
     m.def("subtract", [](int i, int j) { return i - j; }, R"pbdoc(
         Subtract two numbers
 
