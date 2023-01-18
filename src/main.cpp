@@ -9,18 +9,6 @@ int add(int i, int j) {
     return i + j;
 }
 
-int psi_sender(int x, int y) {
-    int res = 0;
-    res = 2*x + y;
-    return res;
-}
-
-int psi(int x, int y) {
-    // std::cout << "psi api." << std::endl;
-    auto res = psi_sender(x, y);
-    return res;
-}
-
 namespace py = pybind11;
 
 
@@ -39,12 +27,6 @@ PYBIND11_MODULE(cmake_example, m) {
     )pbdoc";
 
     m.def("add", &add, R"pbdoc(
-        Add two numbers
-
-        Some other explanation about the add function.
-    )pbdoc");
-
-    m.def("psi", &psi, R"pbdoc(
         Add two numbers
 
         Some other explanation about the add function.

@@ -73,7 +73,7 @@ void runReceiver() {
 
 
 int runmock(int x) {
-	// std::cout << "this PSI_test lib." << std::endl;
+	std::cout << "this PSI_test lib." << std::endl;
 	return 2*x;
 }
 
@@ -82,7 +82,6 @@ int run(u64 senderSize,
 	u64 receiverSize,
 	u64 logHeight,
 	u64 hashLengthInBytes,
-	u64 bucket,
 	string ip,
 	int role) {
 	
@@ -96,6 +95,8 @@ int run(u64 senderSize,
 
 	hashLengthInBytes = 10;
 	ip = ip;
+
+    bucket1 = bucket2 = 1 << 8;
 	
 
 	std::cout
@@ -120,7 +121,7 @@ int run(u64 senderSize,
 
 	if (role == 0) {
 		runSender();
-	} else if (role == 1) {
+	} else {
 		runReceiver();
 	}
 
