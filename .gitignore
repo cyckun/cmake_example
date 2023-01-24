@@ -7,3 +7,4 @@ _generate/
 *.py[cod]
 *.egg-info
 *env*
+.vscode/

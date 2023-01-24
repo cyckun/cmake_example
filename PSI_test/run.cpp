@@ -52,12 +52,12 @@ void runReceiver() {
 	Endpoint ep(ios, ip, EpMode::Client, "test-psi");
 	Channel ch = ep.addChannel();
 
-	vector<block> receiverSet(receiverSize); 
+	vector<block> receiverSet(receiverSize);
 	PRNG prng(oc::toBlock(123));
 	for (auto i = 0; i < 100; ++i) {
 		receiverSet[i] = prng.get<block>();
 	}
-	
+
 	PRNG prng2(oc::toBlock(456));
 	for (auto i = 100; i < receiverSize; ++i) {
 		receiverSet[i] = prng2.get<block>();
@@ -78,23 +78,23 @@ int runmock(int x) {
 }
 
 
-int run(u64 senderSize,
-	u64 receiverSize,
-	u64 logHeight,
-	u64 hashLengthInBytes,
-	string ip,
+int run(u64 senderSize1,
+	u64 receiverSize1,
+	u64 logHeight1,
+	u64 hashLengthInBytes1,
+	string ip1,
 	int role) {
 	
 	
-	senderSize = senderSize;
+	senderSize = senderSize1;
 	
-	receiverSize = receiverSize;
+	receiverSize = receiverSize1;
 	width = 600;
-	logHeight = logHeight;
+	logHeight = logHeight1;
 	height = 1 << logHeight;
 
 	hashLengthInBytes = 10;
-	ip = ip;
+	ip = ip1;
 
     bucket1 = bucket2 = 1 << 8;
 	
