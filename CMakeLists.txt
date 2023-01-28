@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.4...3.18)
-project(cmake_example)
+project(psi_oprf)
 
 
 include_directories("${CMAKE_SOURCE_DIR}")
@@ -75,15 +75,15 @@ set(BOOST_ROOT "${libOTe_Dirs}/cryptoTools/thirdparty/linux/boost/")
 add_subdirectory(pybind11)
 
 add_subdirectory(PSI)
-add_subdirectory(PSI_test)
+add_subdirectory(PSI_main)
 
-pybind11_add_module(cmake_example src/main.cpp)
+pybind11_add_module(psi_oprf src/main.cpp)
 
-target_link_libraries(cmake_example PUBLIC PSI_test)
-target_include_directories(cmake_example PUBLIC PSI_test)
+target_link_libraries(psi_oprf PUBLIC PSI_main)
+target_include_directories(psi_oprf PUBLIC PSI_main)
 
 
 # EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
 # define (VERSION_INFO) here.
-target_compile_definitions(cmake_example
+target_compile_definitions(psi_oprf
                            PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})

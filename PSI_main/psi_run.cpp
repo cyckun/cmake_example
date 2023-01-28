@@ -2,7 +2,7 @@
 #include "PSI/include/utils.h"
 #include "PSI/include/PsiSender.h"
 #include "PSI/include/PsiReceiver.h"
-#include "run.h"
+#include "psi_run.h"
 
 #include <cryptoTools/Network/IOService.h>
 #include <cryptoTools/Network/Endpoint.h>
@@ -24,7 +24,7 @@ u64 width;
 u64 height;
 u64 logHeight;
 u64 hashLengthInBytes;
-u64 bucket, bucket1, bucket2;
+u64 bucket1, bucket2;
 string ip;
 
 
@@ -72,29 +72,24 @@ void runReceiver() {
 }
 
 
-int runmock(int x) {
-	std::cout << "this PSI_test lib." << std::endl;
-	return 2*x;
-}
 
-
-int run(u64 senderSize1,
-	u64 receiverSize1,
-	u64 logHeight1,
-	u64 hashLengthInBytes1,
-	string ip1,
+int PsiRun(u64 senderSizeIn,
+	u64 receiverSizeIn,
+	u64 logHeightIn,
+	u64 hashLengthInBytesIn,
+	string ipIn,
 	int role) {
 	
 	
-	senderSize = senderSize1;
+	senderSize = senderSizeIn;
 	
-	receiverSize = receiverSize1;
+	receiverSize = receiverSizeIn;
 	width = 600;
-	logHeight = logHeight1;
+	logHeight = logHeightIn;
 	height = 1 << logHeight;
 
-	hashLengthInBytes = 10;
-	ip = ip1;
+	hashLengthInBytes = hashLengthInBytesIn;
+	ip = ipIn;
 
     bucket1 = bucket2 = 1 << 8;
 	

@@ -51,9 +51,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'cmake_example'
-copyright = '2016, Sylvain Corlay'
-author = 'Sylvain Corlay'
+project = 'psi_oprf'
+copyright = 'pp_lite'
+author = 'pp_lite'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -205,7 +205,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'cmake_exampledoc'
+htmlhelp_basename = 'psi_oprfdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -227,8 +227,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'cmake_example.tex', 'cmake_example Documentation',
-     'Sylvain Corlay', 'manual'),
+    (master_doc, 'psi_oprf.tex', 'psi_oprf Documentation',
+     'pp_lite', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -257,7 +257,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'cmake_example', 'cmake_example Documentation',
+    (master_doc, 'psi_oprf', 'psi_oprf Documentation',
      [author], 1)
 ]
 
@@ -271,8 +271,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'cmake_example', 'cmake_example Documentation',
-     author, 'cmake_example', 'One line description of project.',
+    (master_doc, 'psi_oprf', 'psi_oprf Documentation',
+     author, 'psi_oprf', 'One line description of project.',
      'Miscellaneous'),
 ]
 

@@ -1,5 +1,5 @@
 #include <pybind11/pybind11.h>
-#include "PSI_test/run.h"
+#include "PSI_main/psi_run.h"
 #include <iostream>
 
 #define STRINGIFY(x) #x
@@ -12,12 +12,12 @@ int add(int i, int j) {
 namespace py = pybind11;
 
 
-PYBIND11_MODULE(cmake_example, m) {
+PYBIND11_MODULE(psi_oprf, m) {
     m.doc() = R"pbdoc(
         Pybind11 example plugin
         -----------------------
 
-        .. currentmodule:: cmake_example
+        .. currentmodule:: psi_oprf
 
         .. autosummary::
            :toctree: _generate
@@ -31,14 +31,8 @@ PYBIND11_MODULE(cmake_example, m) {
 
         Some other explanation about the add function.
     )pbdoc");
-
-    m.def("runmock", &runmock, R"pbdoc(
-        PSI run mock
-
-        Some other explanation about the add function.
-    )pbdoc");
     
-    m.def("run", &run, R"pbdoc(
+    m.def("PsiRun", &PsiRun, R"pbdoc(
         PSI run
 
         Some other explanation about the add function.

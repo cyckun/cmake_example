@@ -1,4 +1,4 @@
-import cmake_example as m
+import psi_oprf as m
 
 
 def test_main():
