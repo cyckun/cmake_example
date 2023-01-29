@@ -8,9 +8,6 @@ include_directories("${CMAKE_SOURCE_DIR}")
 # set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/lib)
 # set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/lib)
 
-# message("test path -------------")
-# message( ${CMAKE_HOME_DIRECTORY})
-
 #############################################
 #            Flag and #defines              #
 #############################################
